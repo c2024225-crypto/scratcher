@@ -111,7 +111,7 @@ const timerId = setInterval(() => {
   time--;
   timerEl.textContent = "残り時間: " + time;
 
-  const speed = 2.2;
+  const speed = 3.3;
   sushiX += speed;
   sushiWrapper.style.transform = `translateX(${sushiX}px)`;
 
