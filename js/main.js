@@ -33,7 +33,7 @@ function getSushiSize() {
 }
 
 // 単語ブロックをステージ中央に寄せる（寿司画像の右側に来るように調整）
-function /updateWordOffset()/ {
+function updateWordOffset() {
   const stageEl = document.getElementById("stage");
   const stageRect = stageEl.getBoundingClientRect();
   const stageW = stageRect.width;
