@@ -42,19 +42,39 @@ main { display:flex; flex-direction:column; align-items:center; padding:24px; }
   border-radius: 6px;
 }
 
-/* 置き換え or 追加する部分 */
+/* sushi-wrapper は左端基準で transform で動かす */
 #sushi-wrapper {
   position: absolute;
   top: 30px;
   left: 0;
-  width: 100%;            /* 追加：幅をステージいっぱいにする */
+  width: 100%;
   display: flex;
   align-items: center;
+  padding-left: 40px;
   gap: 20px;
   transition: transform 0.2s linear;
-  padding-left: 40px;
   will-change: transform;
-  justify-content: flex-start; /* 画像は左寄せ、単語は下で中央寄せ */
+}
+
+/* 単語をステージ中央に固定 */
+#stage { position: relative; } /* 既にあるはずですが念のため */
+#word {
+  position: absolute;
+  top: 48px; /* 見た目に合わせて調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  font-weight: 700;
+  color: #2b2b2b;
+  background: rgba(255,255,255,0.95);
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none; /* クリックを邪魔しない */
 }
 
 /* 改善版 #sushi-img */
