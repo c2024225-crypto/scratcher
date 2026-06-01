@@ -2,24 +2,31 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>寿司タイピング（自作）</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header>
     <h1>寿司タイピング（自作）</h1>
-    <div id="score">スコア: 0</div>
-    <div id="timer">残り時間: 30</div>
+    <div id="hud">
+      <div id="score">スコア: 0</div>
+      <div id="timer">残り時間: 60</div>
+    </div>
   </header>
 
   <main>
-    <div id="sushi-area">
-      <img id="sushi-img" src="images/sushi.png">
-      <div id="word">maguro</div>
+    <div id="stage">
+      <div id="track"></div>
+      <div id="sushi-wrapper">
+        <img id="sushi-img" src="images/sushi1.png" alt="sushi">
+        <div id="word"><span class="target"></span></div>
+      </div>
     </div>
 
-    <input id="input" type="text" placeholder="入力してEnter">
+    <div id="controls">
+      <input id="input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="タイプしてね">
+    </div>
   </main>
 
   <script src="js/main.js"></script>
