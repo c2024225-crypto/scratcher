@@ -93,8 +93,7 @@ main {
   flex-shrink: 0;
 }
 
-/* ---------- 単語表示（中央固定） ---------- */
-/* 単一の管理ブロックで中央固定を担保する */
+/* ---------- 単語表示（中央固定・上下に動かない） ---------- */
 #word {
   position: absolute;
   top: 48px;
@@ -107,7 +106,9 @@ main {
   padding: 8px 12px;
   border-radius: 8px;
   min-width: 220px;
-  display: flex;
+  height: 48px;            /* 高さ固定（重要） */
+  line-height: 48px;       /* 文字を上下中央に固定（重要） */
+  display: inline-flex;    /* flex で中央揃え */
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -117,20 +118,22 @@ main {
   width: auto;
 }
 
-/* 単語内部のレイアウト（上下に動かないようにする） */
+/* 内部テキスト（折り返し禁止・高さ揃え） */
 #word .target {
   display: inline-block;
-  white-space: nowrap;      /* 折り返さない */
+  white-space: nowrap;     /* 折り返し禁止で高さが変わらない */
 }
 
 #word .matched,
 #word .remaining {
   display: inline-block;
   vertical-align: middle;
-  line-height: 1;
+  line-height: 48px;       /* #word と揃える */
   margin: 0;
   padding: 0;
+  transform: none !important;
 }
+
 
 
 /* 色分け */
@@ -172,26 +175,3 @@ main {
 /* ---------- 追加の安全措置（不要な上書きを避ける） ---------- */
 /* 重要: inline style や JS による位置上書きを避けるため、ここでは transform を消すような全体ルールは入れない */
 /* もし JS が inline style を書いている場合は js/main.js 側で該当行をコメントアウトしてください */
-#word .matched,
-#word .remaining {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;        /* ← これが最重要 */
-  transform: none !important; /* 念のため */
-}
-
-/* ★ 単語ボックスの高さを固定して上下中央にする */
-#word {
-  height: 48px;              /* ← 文字の高さに合わせて固定（重要） */
-  line-height: 48px;         /* ← 文字を上下中央に固定（最重要） */
-  display: flex;
-  align-items: center;       /* ← flex でも中央に寄せる */
-  justify-content: center;
-}
-#word .matched,
-#word .remaining {
-  line-height: 48px;   /* ← #word と同じ高さにする */
-  display: inline-block;
-  vertical-align: middle;
-}
-
