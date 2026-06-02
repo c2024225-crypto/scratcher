@@ -170,3 +170,11 @@ main {
 /* ---------- 追加の安全措置（不要な上書きを避ける） ---------- */
 /* 重要: inline style や JS による位置上書きを避けるため、ここでは transform を消すような全体ルールは入れない */
 /* もし JS が inline style を書いている場合は js/main.js 側で該当行をコメントアウトしてください */
+#word .matched,
+#word .remaining {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;        /* ← これが最重要 */
+  transform: none !important; /* 念のため */
+}
+
