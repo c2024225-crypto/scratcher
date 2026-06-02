@@ -92,13 +92,13 @@ inputEl.addEventListener("input", () => {
   progress = newProgress;
   renderWord();
 
-  if (val === current) {
+  //if (val === current) {
     score++;
     scoreEl.textContent = "スコア: " + score;
     inputEl.value = "";
     sushiX = stageWidth + 120;
-    //sushiWrapper.style.transition = "transform 0.6s ease-out";
-    //sushiWrapper.style.transform = `translateX(${sushiX}px)`;
+    sushiWrapper.style.transition = "transform 0.6s ease-out";
+    sushiWrapper.style.transform = `translateX(${sushiX}px)`;
     setTimeout(() => {
       sushiWrapper.style.transition = "none";
       pickWord();
