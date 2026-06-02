@@ -117,19 +117,21 @@ main {
   width: auto;
 }
 
-/* 単語内部の中央揃え */
-#word .target,
-#word .target span,
-#word .target .matched,
-#word .target .remaining {
+/* 単語内部のレイアウト（上下に動かないようにする） */
+#word .target {
   display: inline-block;
-  width: 100%;
-  text-align: center;
+  white-space: nowrap;      /* 折り返さない */
+}
+
+#word .matched,
+#word .remaining {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
   margin: 0;
   padding: 0;
-  float: none;
-  vertical-align: middle;
 }
+
 
 /* 色分け */
 #word .matched { color: #2ecc71; }
